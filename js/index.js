@@ -13,16 +13,29 @@ $(document).ready(function(){
     });
 
     $(".reset").click(function(){
-        editor.getSession().setValue(""); 
+        editor.getSession().setValue("");
+        for(var i=0; i<99;i++) {
+            editor.getSession().setValue(editor.getSession().getValue()+"\n");
+        }
+    });
+
+    $(".upload").click(function(){
+        $("#uploader").toggle();
+    });
+
+    $(".upload .close").click(function(){
+        $(this).parents(".upload").toggle();
     });
 
     editor = ace.edit("editor");
-    editor.setTheme("ace/theme/clouds");
-    editor.getSession().setMode("ace/mode/markdown");
+    editor.setTheme("ace/theme/xcode");
     editor.setOptions({
             maxLines: Infinity
     });
+    for(var i=0; i<99;i++) {
+        editor.getSession().setValue(editor.getSession().getValue()+"\n");
+    }
     editor.focus();
 
-    $("#viewer").attr("data","http://bit.ly/1uogehU");
+    $("#viewer").attr("data","http://bit.ly/1Fdr2FS");
 });
